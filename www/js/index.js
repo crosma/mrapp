@@ -73,7 +73,7 @@ var app = {
 			p.push(name);
 		}
 
-		$status.text("Ugh " + (typeof PushNotification) + " " + p.join(', '));
+		$status.text("Ugh " + (typeof PushNotification) + " [" + p.join(', ') + "]");
 
 		var push = PushNotification.init({
 			"android": {"129589237475": "12345679"},
