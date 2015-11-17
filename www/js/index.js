@@ -21,12 +21,7 @@ var app = {
     initialize: function() {
         this.bindEvents();
 
-		$form = $('#login');
-		$form.on('submit', function() {
-			$form.hide();
-
-			return false;
-		});
+		console.warn("initialize");
     },
 
 
@@ -35,15 +30,70 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
+		console.warn("bindEvents");
+
+        document.addEventListener('deviceready', function() {
+			console.log("TESTTESTE");
+		}, true);
+
+
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
+
 
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+		console.warn("onDeviceReady");
+
+		var $status = $('#status');
+
+		//$status.hide();
+
+
+		var $form = $('#login');
+		$form.show();
+		$form.on('submit', function() {
+			$form.hide();
+
+			return false;
+		});
+
+		//android sender ID 129589237475
+
+		/*
+		 var push = PushNotification.init({ "android": {"129589237475": "12345679"},
+		 "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+		 */
+
+		$status.text("Ugh " + (typeof PushNotification) + " " + window.plugins.PushNotification);
+
+		var push = PushNotification.init({
+			"android": {"129589237475": "12345679"},
+			//"ios": {"alert": "true", "badge": "true", "sound": "true"},
+			//"windows": {}
+		});
+
+		push.on('registration', function(data) {
+			// data.registrationId
+		});
+
+		push.on('notification', function(data) {
+			// data.message,
+			// data.title,
+			// data.count,
+			// data.sound,
+			// data.image,
+			// data.additionalData
+		});
+
+		push.on('error', function(e) {
+			// e.message
+		});
+
+
     },
 
     // Update DOM on a Received Event

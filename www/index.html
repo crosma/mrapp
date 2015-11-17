@@ -12,7 +12,8 @@
     <body>
 		<div class="app">
 			<h1>MafiaReturns Notifications</h1>
-			<form id="login">
+			<div id="status">Loading...</div>
+			<form id="login" style="display: none;">
 				<div class="row">
 					<label for="username">Username/Email:</label>
 					<input type="text" name="username" id="username" />
@@ -30,6 +31,7 @@
 		</div>
 
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
