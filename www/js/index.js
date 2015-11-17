@@ -21,17 +21,14 @@ var app = {
     initialize: function() {
         this.bindEvents();
 
+		$form = $('#login');
+		$form.on('submit', function() {
+			$form.hide();
 
+			return false;
+		});
     },
 
-    alignApp: function() {
-      var $app = $('.app');
-
-      $app.css({
-        'margin-top': (-1 * $app.height() / 2) + 'px',
-        'margin-left': (-1 * $app.width() / 2) + 'px',
-      });
-    }, 
 
     // Bind Event Listeners
     //
