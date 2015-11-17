@@ -68,7 +68,12 @@ var app = {
 		 "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 		 */
 
-		$status.text("Ugh " + (typeof PushNotification) + " " + window.plugins.PushNotification);
+		var p = [];
+		for (var name in window.plugins) {
+			p.push(name);
+		}
+
+		$status.text("Ugh " + (typeof PushNotification) + " " + p.join(', '));
 
 		var push = PushNotification.init({
 			"android": {"129589237475": "12345679"},
