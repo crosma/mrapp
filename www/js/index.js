@@ -19,9 +19,9 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        this.bindEvents();
+		$.support.cors = true; //make sure jquery has cors on
 
-		console.warn("initialize");
+        this.bindEvents();
     },
 
 
@@ -30,13 +30,6 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-		console.warn("bindEvents");
-
-        document.addEventListener('deviceready', function() {
-			console.log("TESTTESTE");
-		}, true);
-
-
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
 
@@ -46,72 +39,75 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-		console.warn("onDeviceReady");
-
-		var $status = $('#status');
-
-		//$status.hide();
-
-
-		var $form = $('#login');
-		$form.show();
-		$form.on('submit', function() {
-			$form.hide();
-
-			return false;
-		});
-
-		//android sender ID 129589237475
-
-		/*
-		 var push = PushNotification.init({ "android": {"129589237475": "12345679"},
-		 "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
-		 */
-
-		var p = [];
-		for (var name in window.plugins) {
-			p.push(name);
-		}
-
-		$status.text("Ugh " + (typeof PushNotification) + " [" + p.join(', ') + "]");
-
 		var push = PushNotification.init({
-			"android": {"129589237475": "12345679"},
+			"android": {"senderID": "129589237475"},
 			//"ios": {"alert": "true", "badge": "true", "sound": "true"},
 			//"windows": {}
 		});
 
-		push.on('registration', function(data) {
+		console.log('Trying to register');
+
+		push.on('registration', function (data) {
 			// data.registrationId
+			console.log('data = ', data);
+			console.log('data.registrationId = ', data.registrationId);
+
+			app.registrationId = data.registrationId;
+
+			app.initForm();
 		});
 
-		push.on('notification', function(data) {
+		push.on('notification', function (data) {
 			// data.message,
 			// data.title,
 			// data.count,
 			// data.sound,
 			// data.image,
 			// data.additionalData
+			console.log('Push!: ', data);
 		});
 
-		push.on('error', function(e) {
+		push.on('error', function (e) {
 			// e.message
+			console.error('Push Error: ', e);
+		});
+
+	},
+
+	initForm: function() {
+		var $status = $('#status');
+		$status.hide();
+
+		var $form = $('#login');
+		$form.show();
+		$form.on('submit', function () {
+			$form.hide();
+
+			return false;
 		});
 
 
-    },
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-
-
-        console.log('Received Event: ' + id);
-    }
+		var jqxhr = $.ajax({
+				type: "POST",
+				url: "https://mafiareturns.com/login_app.php",
+				data: {
+					'device': 'android',
+					'registrationId': app.registrationId,
+					'username': 'UNAMEE',
+					'password': 'PASS'
+				},
+			})
+			.done(function () {
+				console.log("second success", arguments);
+			})
+			.fail(function () {
+				console.log("error", arguments);
+			})
+			.always(function () {
+				console.log("finished", arguments);
+			});
+	},
 };
+
+

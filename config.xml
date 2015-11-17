@@ -3,6 +3,9 @@
 	<description>Get notifications from MafiaReturns. Requires logging in to your MafiaReturns account.</description>
 	<author href="http://mafiareturns.com" email="enkindle@mafiareturns.com">MafiaReturns</author>
 	<content src="index.html"/>
+
+	<preference name="phonegap-version" value="cli-5.2.0" />
+
 	<preference name="permissions" value="none"/>
 	<preference name="orientation" value="default"/>
 	<preference name="target-device" value="universal"/>
@@ -41,6 +44,9 @@
 	<gap:plugin name="org.apache.cordova.vibration"/>
 	-->
 
+	<gap:plugin name="phonegap-plugin-push" source="npm" />
+	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
+
   	<icon src="icon.png"/>
 
 	<icon gap:platform="ios" src="res/icon/ios/icon-small.png" width="29" height="29" />
@@ -54,8 +60,8 @@
 	<icon gap:platform="ios" src="res/icon/ios/icon-60.png" width="60" height="60" />
 	<icon gap:platform="ios" src="res/icon/ios/icon-60_2x.png" width="120" height="120" />
 	<icon gap:platform="ios" src="res/icon/ios/icon-60_3x.png" width="180" height="180" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-72.png" width="72" height="72" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-72_2x.png" width="144" height="144" />
+	<!-- <icon gap:platform="ios" src="res/icon/ios/icon-72.png" width="72" height="72" />
+	<icon gap:platform="ios" src="res/icon/ios/icon-72_2x.png" width="144" height="144" /> -->
 	<icon gap:platform="ios" src="res/icon/ios/icon-76.png" width="76" height="76" />
 	<icon gap:platform="ios" src="res/icon/ios/icon-76_2x.png" width="152" height="152" />
 
@@ -81,13 +87,25 @@
 	<gap:splash gap:platform="android" gap:qualifier="xxhdpi" src="res/screen/android/xxhdpi-portrait.png" />
 	<gap:splash gap:platform="android" gap:qualifier="xxxhdpi" src="res/screen/android/xxxhdpi-portrait.png" />
 
-	<access origin="*"/>
+	<plugin name="cordova-plugin-whitelist" version="1" spec="1" />
+
+	<!--
+	<access origin="https://mafiareturns.com" />
+	<allow-navigation href="mafiareturns.com/*" />
 	<allow-intent href="http://*/*"/>
 	<allow-intent href="https://*/*"/>
 	<allow-intent href="tel:*"/>
 	<allow-intent href="sms:*"/>
 	<allow-intent href="mailto:*"/>
 	<allow-intent href="geo:*"/>
+	-->
+
+	<access origin="*" />
+	<allow-intent href="*" />
+	<allow-navigation href="*" />
+
+
+
 	<platform name="android">
 		<allow-intent href="market:*"/>
 	</platform>
@@ -96,6 +114,8 @@
 		<allow-intent href="itms-apps:*"/>
 	</platform>
 
-	<gap:plugin name="phonegap-plugin-push" source="npm" />
+
+
+
 
 </widget>
