@@ -142,13 +142,16 @@ h1 {
 	color: #aaaaaa;
 }
 
-#error, #status {
+#message {
 	padding: 5px;
 	margin-bottom: 10px;
+	background: #505050;
 }
-#error {
+#message.error {
 	background: #500000;
 }
-#status {
-	background: #505050;
+
+input[type="submit"] {
+	height: 45px;
+	padding: 0 50px;
 }
