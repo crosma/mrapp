@@ -135,3 +135,20 @@ h1 {
 	animation: fade 3000ms infinite;
 	-webkit-animation: fade 3000ms infinite;
 }
+
+.version {
+	margin-top: 15px;
+	font-size: 75%;
+	color: #aaaaaa;
+}
+
+#error, #status {
+	padding: 5px;
+	margin-bottom: 10px;
+}
+#error {
+	background: #500000;
+}
+#status {
+	background: #505050;
+}

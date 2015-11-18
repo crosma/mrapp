@@ -17,9 +17,13 @@
  * under the License.
  */
 var app = {
+	version: 20,
+
     // Application Constructor
     initialize: function() {
 		$.support.cors = true; //make sure jquery has cors on
+
+		$('#version').text(this.version);
 
         this.bindEvents();
     },
@@ -54,7 +58,11 @@ var app = {
 
 			app.registrationId = data.registrationId;
 
-			app.initForm();
+			if (localStorage.logged_in) {
+				app.initLoggedIn();
+			} else {
+				app.initLoggedOut();
+			}
 		});
 
 		push.on('notification', function (data) {
@@ -74,40 +82,80 @@ var app = {
 
 	},
 
-	initForm: function() {
-		var $status = $('#status');
-		$status.hide();
+	initLoggedOut: function() {
+		var $status = $('#status').hide();
+		var $error = $('#error').hide();
 
-		var $form = $('#login');
-		$form.show();
+		var $form = $('#login').show();
+		var $username = $('#username');
+		var $password = $('#password');
+
+		//prefill form
+		$username.val(localStorage.username);
+		$password.val(localStorage.password);
+
 		$form.on('submit', function () {
+			var username = $username.val();
+			var password = $password.val();
+
+			//store form data
+			localStorage.username = username;
+			localStorage.password = password;
+
+			//hide form and show a logging in message...
 			$form.hide();
+			$error.hide();
+			$status.text('Logging in...').show();
+
+			var jqxhr = $.ajax({
+					type: "POST",
+					url: "https://mafiareturns.com/login_app.php",
+					data: {
+						'device': JSON.stringify(device),
+						'registrationId': app.registrationId,
+						'username': username,
+						'password': password
+					},
+				})
+				.done(function (data) {
+					console.log("done", arguments);
+
+					$status.hide();
+
+					data = JSON.parse(data);
+
+					if (data.res == 'ok') {
+						localStorage.logged_in = true;
+						app.initLoggedIn();
+
+					} else if (data.res == 'error') {
+						$error.html(data.msg).show();
+						$form.show();
+
+						delete localStorage.logged_in;
+					}
+				})
+				.fail(function (jqXHR, textStatus, errorThrown) {
+					console.log("fail", arguments);
+					
+					$status.hide();
+					$error.text('Error logging in: ' + textStatus).show();
+					$form.show();
+				})
+				.always(function () {
+					console.log("finished", arguments);
+				});
 
 			return false;
 		});
-
-
-
-		var jqxhr = $.ajax({
-				type: "POST",
-				url: "https://mafiareturns.com/login_app.php",
-				data: {
-					'device': 'android',
-					'registrationId': app.registrationId,
-					'username': 'UNAMEE',
-					'password': 'PASS'
-				},
-			})
-			.done(function () {
-				console.log("second success", arguments);
-			})
-			.fail(function () {
-				console.log("error", arguments);
-			})
-			.always(function () {
-				console.log("finished", arguments);
-			});
 	},
+
+
+	initLoggedIn: function() {
+		var $status = $('#status').text('This device is logged in as ' + localStorage.username + '. (TODO: ADD LOGOUT BUTTON)').show();
+		var $error = $('#error').hide();
+		var $form = $('#login').hide();
+	}
 };
 
 
