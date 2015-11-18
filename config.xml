@@ -87,8 +87,6 @@
 	<gap:splash gap:platform="android" gap:qualifier="xxhdpi" src="res/screen/android/xxhdpi-portrait.png" />
 	<gap:splash gap:platform="android" gap:qualifier="xxxhdpi" src="res/screen/android/xxxhdpi-portrait.png" />
 
-	<plugin name="cordova-plugin-whitelist" version="1" spec="1" />
-
 	<!--
 	<access origin="https://mafiareturns.com" />
 	<allow-navigation href="mafiareturns.com/*" />
