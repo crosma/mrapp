@@ -84,6 +84,11 @@
 		<allow-intent href="market:*"/>
 	</platform>
 
+	<platform name="winphone">
+		<icon src="icon.png" platform="winphone" />
+		<icon src="tileicon.png" platform="winphone" gap:role="background" />
+	</platform>
+
 	<!--
 	<access origin="https://mafiareturns.com" />
 	<allow-navigation href="mafiareturns.com/*" />
