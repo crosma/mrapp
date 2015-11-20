@@ -17,7 +17,7 @@
  * under the License.
  */
 var app = {
-	version: 0.21,
+	version: 0.25,
 
     // Application Constructor
     initialize: function() {
@@ -25,12 +25,7 @@ var app = {
 
 		$('#version').text(app.version);
 
-        app.bindEvents();
-    },
-
-
-    bindEvents: function() {
-        document.addEventListener('deviceready', app.onDeviceReady, false);
+		document.addEventListener('deviceready', app.onDeviceReady, false);
     },
 
 
@@ -55,11 +50,6 @@ var app = {
 		app.input_username = $('#username');
 		app.input_password = $('#password');
 
-		console.log(app.form_login);
-		console.log(app.form_logout);
-		console.log(app.div_message);
-		console.log(app.input_username);
-		console.log(app.input_password);
 
 		//prefill login form
 		app.input_username.val(localStorage.username);
@@ -72,6 +62,7 @@ var app = {
 		//stuff
 		app.div_message.hide();
 	},
+
 
 
 	setStatus: function(msg) {
@@ -216,6 +207,15 @@ var app = {
 		// data.image,
 		// data.additionalData
 		console.log('Push!: ', data);
+
+		if (data.additionalData && data.additionalData.info && data.additionalData.info.action) {
+			var info = data.additionalData.info;
+
+			if (info.action == 'timer') {
+				window.open('http://mafiareturns.com' + info.url, '_system');
+			}
+
+		}
 	},
 
 

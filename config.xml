@@ -25,6 +25,7 @@
 
 
 	<gap:plugin name="cordova-plugin-device"/>
+	<gap:plugin name="cordova-plugin-inappbrowser"/>
 
 	<!--
 	<gap:plugin name="org.apache.cordova.battery-status"/>
@@ -42,7 +43,7 @@
 	<gap:plugin name="org.apache.cordova.inappbrowser"/>
 	<gap:plugin name="org.apache.cordova.media"/>
 	<gap:plugin name="org.apache.cordova.network-information"/>
-	<gap:plugin name="org.apache.cordova.splashscreen"/>
+
 	<gap:plugin name="org.apache.cordova.vibration"/>
 	-->
 
@@ -67,27 +68,12 @@
 	<icon gap:platform="ios" src="res/icon/ios/icon-76.png" width="76" height="76" />
 	<icon gap:platform="ios" src="res/icon/ios/icon-76_2x.png" width="152" height="152" />
 
-	<gap:splash gap:platform="ios" src="res/screen/ios/Default.png" width="320" height="480" />
-	<gap:splash gap:platform="ios" src="res/screen/ios/Default_2x.png" width="640" height="960" />
-	<gap:splash gap:platform="ios" src="res/screen/ios/Default-568h_2x.png" width="640" height="1136" />
-	<gap:splash gap:platform="ios" src="res/screen/ios/Default-667h_2x.png" width="750" height="1334" />
-	<gap:splash gap:platform="ios" src="res/screen/ios/Default-Portrait-736h_3x.png" width="1242" height="2208" />
-	<gap:splash gap:platform="ios" src="res/screen/ios/Default-Portrait.png" width="768" height="1024" />
-	<gap:splash gap:platform="ios" src="res/screen/ios/Default-Portrait_2x.png" width="1536" height="2048" />
-
 	<icon gap:platform="android" gap:qualifier="ldpi" src="res/icon/android/ldpi.png"/>
 	<icon gap:platform="android" gap:qualifier="mdpi" src="res/icon/android/mdpi.png"/>
 	<icon gap:platform="android" gap:qualifier="hdpi" src="res/icon/android/hdpi.png"/>
 	<icon gap:platform="android" gap:qualifier="xhdpi" src="res/icon/android/xhdpi.png"/>
 	<icon gap:platform="android" gap:qualifier="xxhdpi" src="res/icon/android/xxhdpi.png"/>
 	<icon gap:platform="android" gap:qualifier="xxxhdpi" src="res/icon/android/xxxhdpi.png"/>
-
-	<gap:splash gap:platform="android" gap:qualifier="ldpi" src="res/screen/android/ldpi-portrait.png" />
-	<gap:splash gap:platform="android" gap:qualifier="mdpi" src="res/screen/android/mdpi-portrait.png" />
-	<gap:splash gap:platform="android" gap:qualifier="hdpi" src="res/screen/android/hdpi-portrait.png" />
-	<gap:splash gap:platform="android" gap:qualifier="xhdpi" src="res/screen/android/xhdpi-portrait.png" />
-	<gap:splash gap:platform="android" gap:qualifier="xxhdpi" src="res/screen/android/xxhdpi-portrait.png" />
-	<gap:splash gap:platform="android" gap:qualifier="xxxhdpi" src="res/screen/android/xxxhdpi-portrait.png" />
 
 	<!--
 	<access origin="https://mafiareturns.com" />
