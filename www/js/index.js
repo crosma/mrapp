@@ -17,7 +17,7 @@
  * under the License.
  */
 var app = {
-	version: 0.25,
+	version: 0.26,
 
     // Application Constructor
     initialize: function() {
