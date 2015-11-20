@@ -1,0 +1,30 @@
+<ion-view title="MafiaReturns Notifications" hide-back-button="true">
+	<ion-content padding="'true'" class="has-header">
+		<form class="list" ng-submit="login()">
+
+			<div class="card" ng-show="errors">
+				<div class="item item-text-wrap assertive" ng-repeat="msg in errors">
+					{{ msg }}
+				</div>
+			</div>
+
+			<ion-list>
+				<label class="item item-input" name="username">
+					<span class="input-label">Username</span>
+					<input type="text" placeholder="" ng-model="username" ng-disabled="isSaving">
+				</label>
+
+				<label class="item item-input" name="password">
+					<span class="input-label">Password</span>
+					<input type="password" placeholder="" ng-model="password" ng-disabled="isSaving">
+				</label>
+
+			</ion-list>
+
+			<div class="spacer" style="width: 300px; height: 15px;"></div>
+
+			<input type="submit" class="button button-stable button-block icon-right ion-log-in" value="Log In" ng-disabled="isSaving">
+
+		</form>
+	</ion-content>
+</ion-view>

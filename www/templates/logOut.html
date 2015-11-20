@@ -1,0 +1,25 @@
+<ion-view title="MafiaReturns Notifications" hide-back-button="true">
+    <ion-content padding="'true'" scroll="false" class="has-header">
+		<form class="list" ng-submit="logout()" ng-disabled="isSaving">
+			<ion-list>
+				<div class="card">
+					<div class="item item-text-wrap">
+						This device is logged in as <strong>{{ username }}</strong>. Log out to disable receiving notifications on this device.
+					</div>
+				</div>
+
+				<div class="spacer" style="width: 300px; height: 15px;"></div>
+
+				<div class="card" ng-show="errors">
+					<div class="item item-text-wrap assertive" ng-repeat="msg in errors">
+						{{ msg }}
+					</div>
+				</div>
+
+				<form class="list">
+					<input type="submit" class="button button-stable button-block icon-right ion-log-in" value="Log Out" ng-disabled="isSaving">
+				</form>
+			</ion-list>
+		</form>
+    </ion-content>
+</ion-view>
