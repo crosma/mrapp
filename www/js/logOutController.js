@@ -20,6 +20,12 @@ angular.module('app.controllers').controller('logOutCtrl', function ($scope, $st
 				vibrate: true,
 				title: 'Custom'
 			},
+			last_petty: {
+				enabled: true,
+				sound: true,
+				vibrate: true,
+				title: 'Petty'
+			},
 			last_felony: {
 				enabled: true,
 				sound: true,
@@ -43,7 +49,7 @@ angular.module('app.controllers').controller('logOutCtrl', function ($scope, $st
 				sound: true,
 				vibrate: true,
 				title: 'Pickpocket'
-			}
+			},
 		}
 	};
 

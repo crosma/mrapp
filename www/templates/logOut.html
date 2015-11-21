@@ -19,18 +19,18 @@
 						</div>
 					</div>
 
-					<div class="list card" ng-repeat="(timer_name, timer) in options.timers">
+					<div class="list card" ng-repeat="(timer_name, timer) in options_template.timers">
 						<div class="item item-divider">
 							<ion-toggle toggle-class="toggle-positive" ng-model="timer.enabled" ng-change="change()" style="background: none;">
-								{{ options_template.timers[timer_name].title }} Timer
+								{{ timer.title }} Timer
 							</ion-toggle>
 						</div>
 						<div class="item item-body" ng-show="timer.enabled">
 							<fieldset ng-disabled="!timer.enabled">
-								<ion-toggle toggle-class="toggle-positive" ng-model="timer.sound" ng-change="change()">
+								<ion-toggle toggle-class="toggle-positive" ng-model="options.timers[timer_name].sound" ng-change="change()">
 									Play Sound
 								</ion-toggle>
-								<ion-toggle toggle-class="toggle-positive" ng-model="timer.vibrate" ng-change="change()">
+								<ion-toggle toggle-class="toggle-positive" ng-model="options.timers[timer_name].vibrate" ng-change="change()">
 									Vibrate
 								</ion-toggle>
 							</fieldset>
