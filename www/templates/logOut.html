@@ -11,18 +11,21 @@
 
 				<div ng-show="show_options">
 					<div class="list card">
-						<div class="item item-divider">General</div>
+						<div class="item item-divider">General Options</div>
 						<div class="item item-body">
 							<ion-toggle toggle-class="toggle-positive" ng-model="options.must_be_inactive" ng-change="change()">
-								No timers when active in game
+								No timers when active
+								<div class="option-details">When turned <strong>on</strong> this option disables timer notifications when you have loaded a page in game within the last 10 minutes.</div>
 							</ion-toggle>
 
 							<ion-toggle toggle-class="toggle-positive" ng-model="options.no_sound" ng-change="change()">
-								No sound for any notification
+								No notification sound
+								<div class="option-details">Disable sound for all  notifications.</div>
 							</ion-toggle>
 
 							<ion-toggle toggle-class="toggle-positive" ng-model="options.no_vibrate" ng-change="change()">
-								No vibration for any notification
+								No notification vibration
+								<div class="option-details">Disable vibration for all notifications.</div>
 							</ion-toggle>
 						</div>
 					</div>
