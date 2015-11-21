@@ -1,25 +1,53 @@
 <ion-view title="MafiaReturns Notifications" hide-back-button="true">
-    <ion-content padding="'true'" scroll="false" class="has-header">
+	<ion-content padding="'true'" class="has-header">
 		<form class="list" ng-submit="logout()" ng-disabled="isSaving">
 			<ion-list>
-				<div class="card">
-					<div class="item item-text-wrap">
-						This device is logged in as <strong>{{ username }}</strong>. Log out to disable receiving notifications on this device.
+				<div class="card" style="margin-top: 0;">
+					<div class="item item-text-wrap" style="margin-top: 0;">
+						This device is logged in as <strong>{{ username }}</strong>. Log out to completly disable receiving
+						notifications from MafiaReturns on this device.
 					</div>
 				</div>
 
-				<div class="spacer" style="width: 300px; height: 15px;"></div>
+				<div ng-show="options">
+					<div class="list card">
+						<div class="item item-divider">General</div>
+						<div class="item item-body">
+							<ion-toggle toggle-class="toggle-positive" ng-model="options.must_be_inactive" ng-change="change()">
+								No timers when active
+							</ion-toggle>
+						</div>
+					</div>
 
-				<div class="card" ng-show="errors">
-					<div class="item item-text-wrap assertive" ng-repeat="msg in errors">
-						{{ msg }}
+					<div class="list card" ng-repeat="(timer_name, timer) in options.timers">
+						<div class="item item-divider">
+							<ion-toggle toggle-class="toggle-positive" ng-model="timer.enabled" ng-change="change()" style="background: none;">
+								{{ options_template.timers[timer_name].title }} Timer
+							</ion-toggle>
+						</div>
+						<div class="item item-body" ng-show="timer.enabled">
+							<fieldset ng-disabled="!timer.enabled">
+								<ion-toggle toggle-class="toggle-positive" ng-model="timer.sound" ng-change="change()">
+									Play Sound
+								</ion-toggle>
+								<ion-toggle toggle-class="toggle-positive" ng-model="timer.vibrate" ng-change="change()">
+									Vibrate
+								</ion-toggle>
+							</fieldset>
+						</div>
+					</div>
+
+					<div class="card" ng-show="errors">
+						<div class="item item-text-wrap assertive" ng-repeat="msg in errors">
+							{{ msg }}
+						</div>
 					</div>
 				</div>
 
 				<form class="list">
-					<input type="submit" class="button button-stable button-block icon-right ion-log-in" value="Log Out" ng-disabled="isSaving">
+					<input type="submit" class="button button-stable button-block icon-right ion-log-in button-positive" value="Log Out" ng-disabled="isSaving">
 				</form>
 			</ion-list>
 		</form>
-    </ion-content>
+	</ion-content>
 </ion-view>

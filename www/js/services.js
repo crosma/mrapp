@@ -1,11 +1,7 @@
 angular.module('app.services', [])
 
-.factory('PushFactory', [function(){
-	console.log('PUSH SERVICE START');
+.factory('BlankFactory', [function(){
 
-	return {
-		'meh': 'yar'
-	}
 }])
 
 .service('BlankService', [function(){

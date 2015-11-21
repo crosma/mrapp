@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives'])
 
-.run(function($ionicPlatform, $state, $ionicConfig) {
+.run(function($ionicPlatform, $rootScope, $state, $ionicConfig) {
 	$ionicPlatform.ready(function () {
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
@@ -27,6 +27,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 		$ionicPlatform.registerBackButtonAction(function () {
 			console.log('back button');
 		}, 100);
+
+
 
 		var push = PushNotification.init({
 			"android": {"senderID": "129589237475"},
@@ -53,5 +55,12 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 		push.on('error', function() {
 			console.log('push error');
 		});
+
+
+		$rootScope.ajaxTransform = function (obj) {
+			var str = [];
+			for (var p in obj) str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+			return str.join("&");
+		};
 	});
 });
