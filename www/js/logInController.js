@@ -10,11 +10,11 @@ angular.module('app.controllers').controller('logInCtrl', function ($scope, $sta
 		this.username = this.username ? this.username.trim() : '';
 		delete $scope.errors;
 
-		$scope.isSaving = true;
-
 		if (this.username && this.password) {
 			localStorage.username = this.username;
 			localStorage.password = this.password;
+
+			$scope.isSaving = true;
 
 			$http({
 				method: 'POST',

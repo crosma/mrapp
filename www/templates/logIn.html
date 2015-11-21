@@ -1,11 +1,14 @@
 <ion-view title="MafiaReturns Notifications" hide-back-button="true">
 	<ion-content padding="'true'" class="has-header">
 		<form class="list" ng-submit="login()">
+			<div class="card" style="margin-top: 0;">
+				<div class="item item-text-wrap" style="margin-top: 0;">
+					Log in to register this device to recieve notifications from MafiaReturns.
+				</div>
+			</div>
 
 			<div class="card" ng-show="errors">
-				<div class="item item-text-wrap assertive" ng-repeat="msg in errors">
-					{{ msg }}
-				</div>
+				<div class="item item-text-wrap assertive" ng-repeat="msg in errors" ng-bind-html="msg"></div>
 			</div>
 
 			<ion-list>

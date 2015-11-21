@@ -3,9 +3,8 @@ angular.module('app.controllers').controller('logOutCtrl', function ($scope, $st
 	delete $scope.errors;
 
 	$scope.username = localStorage.username;
-	$scope.options = false;
-
-	$scope.options_template = {
+	$scope.show_options = false;
+	$scope.options = {
 		must_be_inactive: true,
 		timers: {
 			mia_ready: {
@@ -49,7 +48,7 @@ angular.module('app.controllers').controller('logOutCtrl', function ($scope, $st
 				sound: true,
 				vibrate: true,
 				title: 'Pickpocket'
-			},
+			}
 		}
 	};
 
@@ -69,11 +68,17 @@ angular.module('app.controllers').controller('logOutCtrl', function ($scope, $st
 		console.log(response);
 
 		if (response.data.options) {
-			$scope.options = JSON.parse(response.data.options);
+			var o = JSON.parse(response.data.options);
 
-		} else {
-			$scope.options = $scope.options_template;
+			$scope.options.must_be_inactive = 'must_be_inactive' in o ? o.must_be_inactive : true;
+			for (var t in $scope.options.timers) {
+				$scope.options.timers[t].enabled = o.timers[t].enabled;
+				$scope.options.timers[t].sound = o.timers[t].sound;
+				$scope.options.timers[t].vibrate = o.timers[t].vibrate;
+			}
 		}
+
+		$scope.show_options = true;
 	}, function errorCallback(response) {
 		$scope.errors = [response];
 	});

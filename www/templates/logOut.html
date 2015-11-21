@@ -9,17 +9,17 @@
 					</div>
 				</div>
 
-				<div ng-show="options">
+				<div ng-show="show_options">
 					<div class="list card">
 						<div class="item item-divider">General</div>
 						<div class="item item-body">
 							<ion-toggle toggle-class="toggle-positive" ng-model="options.must_be_inactive" ng-change="change()">
-								No timers when active
+								No timers when active in game
 							</ion-toggle>
 						</div>
 					</div>
 
-					<div class="list card" ng-repeat="(timer_name, timer) in options_template.timers">
+					<div class="list card" ng-repeat="(timer_name, timer) in options.timers">
 						<div class="item item-divider">
 							<ion-toggle toggle-class="toggle-positive" ng-model="timer.enabled" ng-change="change()" style="background: none;">
 								{{ timer.title }} Timer
@@ -27,10 +27,10 @@
 						</div>
 						<div class="item item-body" ng-show="timer.enabled">
 							<fieldset ng-disabled="!timer.enabled">
-								<ion-toggle toggle-class="toggle-positive" ng-model="options.timers[timer_name].sound" ng-change="change()">
+								<ion-toggle toggle-class="toggle-positive" ng-model="timer.sound" ng-change="change()">
 									Play Sound
 								</ion-toggle>
-								<ion-toggle toggle-class="toggle-positive" ng-model="options.timers[timer_name].vibrate" ng-change="change()">
+								<ion-toggle toggle-class="toggle-positive" ng-model="timer.vibrate" ng-change="change()">
 									Vibrate
 								</ion-toggle>
 							</fieldset>

@@ -63,7 +63,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 				if (info.action == 'timer') {
 					window.open('http://mafiareturns.com' + info.url, '_system');
 				}
-
 			}
 		});
 
