@@ -16,6 +16,14 @@
 							<ion-toggle toggle-class="toggle-positive" ng-model="options.must_be_inactive" ng-change="change()">
 								No timers when active in game
 							</ion-toggle>
+
+							<ion-toggle toggle-class="toggle-positive" ng-model="options.no_sound" ng-change="change()">
+								No sound for any notification
+							</ion-toggle>
+
+							<ion-toggle toggle-class="toggle-positive" ng-model="options.no_vibrate" ng-change="change()">
+								No vibration for any notification
+							</ion-toggle>
 						</div>
 					</div>
 
@@ -26,14 +34,12 @@
 							</ion-toggle>
 						</div>
 						<div class="item item-body" ng-show="timer.enabled">
-							<fieldset ng-disabled="!timer.enabled">
-								<ion-toggle toggle-class="toggle-positive" ng-model="timer.sound" ng-change="change()">
-									Play Sound
-								</ion-toggle>
-								<ion-toggle toggle-class="toggle-positive" ng-model="timer.vibrate" ng-change="change()">
-									Vibrate
-								</ion-toggle>
-							</fieldset>
+							<ion-toggle toggle-class="toggle-positive" ng-model="timer.sound" ng-change="change()" ng-if="!options.no_sound">
+								Play Sound
+							</ion-toggle>
+							<ion-toggle toggle-class="toggle-positive" ng-model="timer.vibrate" ng-change="change()" ng-if="!options.no_vibrate">
+								Vibrate
+							</ion-toggle>
 						</div>
 					</div>
 

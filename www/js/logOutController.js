@@ -6,6 +6,8 @@ angular.module('app.controllers').controller('logOutCtrl', function ($scope, $st
 	$scope.show_options = false;
 	$scope.options = {
 		must_be_inactive: true,
+		no_sound: false,
+		no_vibrate: false,
 		timers: {
 			mia_ready: {
 				enabled: true,
@@ -71,6 +73,9 @@ angular.module('app.controllers').controller('logOutCtrl', function ($scope, $st
 			var o = JSON.parse(response.data.options);
 
 			$scope.options.must_be_inactive = 'must_be_inactive' in o ? o.must_be_inactive : true;
+			$scope.options.no_sound = !!o.must_be_inactive;
+			$scope.options.no_vibrate = !!o.no_vibrate;
+
 			for (var t in $scope.options.timers) {
 				$scope.options.timers[t].enabled = o.timers[t].enabled;
 				$scope.options.timers[t].sound = o.timers[t].sound;
