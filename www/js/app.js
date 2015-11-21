@@ -48,11 +48,26 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 			}
 		});
 
-		push.on('notification', function() {
-			console.log('push notification');
+		push.on('notification', function(data) {
+			// data.message,
+			// data.title,
+			// data.count,
+			// data.sound,
+			// data.image,
+			// data.additionalData
+			console.log('Push!: ', data);
+
+			if (data.additionalData && data.additionalData.info && data.additionalData.info.action) {
+				var info = data.additionalData.info;
+
+				if (info.action == 'timer') {
+					window.open('http://mafiareturns.com' + info.url, '_system');
+				}
+
+			}
 		});
 
-		push.on('error', function() {
+		push.on('error', function(e) {
 			console.log('push error');
 		});
 
