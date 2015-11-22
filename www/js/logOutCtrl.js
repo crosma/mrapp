@@ -5,6 +5,7 @@ angular.module('app.controllers').controller('logOutCtrl', function ($scope, $st
 	$scope.username = localStorage.username;
 	$scope.show_options = false;
 	$scope.options = {
+		timer_notifications: true,
 		must_be_inactive: true,
 		no_sound: false,
 		no_vibrate: false,
@@ -72,6 +73,7 @@ angular.module('app.controllers').controller('logOutCtrl', function ($scope, $st
 		if (response.data.options) {
 			var o = JSON.parse(response.data.options);
 
+			$scope.options.timer_notifications = 'timer_notifications' in o ? o.timer_notifications : true;
 			$scope.options.must_be_inactive = 'must_be_inactive' in o ? o.must_be_inactive : true;
 			$scope.options.no_sound = !!o.must_be_inactive;
 			$scope.options.no_vibrate = !!o.no_vibrate;
@@ -133,40 +135,10 @@ angular.module('app.controllers').controller('logOutCtrl', function ($scope, $st
 				$scope.errors = [response];
 			});
 
-		}, 50);
+		}, 2500);
 	};
 
 
-	$scope.logout = function () {
-		console.log('logout');
-		$scope.isSaving = true;
 
-		$http({
-			method: 'POST',
-			url: 'https://mafiareturns.com/phone_app.php',
-			data: {
-				action: 'logout',
-				uuid: device.uuid,
-				acct_id: localStorage.acct_id
-			},
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-			transformRequest: $scope.ajaxTransform
-		}).then(function successCallback(response) {
-			$scope.isSaving = false;
-
-			if (response.data.res == 'ok') {
-				delete localStorage.logged_in;
-				delete localStorage.acct_id;
-
-				$state.go('logIn');
-			} else {
-				$scope.errors = [response.data.msg];
-			}
-		}, function errorCallback(response) {
-			$scope.isSaving = false;
-
-			$scope.errors = [response];
-		});
-	};
 });
  

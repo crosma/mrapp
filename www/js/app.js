@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'app.config'])
 
 .run(function($ionicPlatform, $rootScope, $state, $ionicConfig) {
 	$ionicPlatform.ready(function () {
@@ -18,8 +18,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 			// org.apache.cordova.statusbar required
 			StatusBar.styleDefault();
 		}
-
-		$ionicConfig.views.transition('none');
 
 		console.log('ready');
 
@@ -42,7 +40,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 			window.registrationId = data.registrationId;
 
 			if (localStorage.logged_in) {
-				$state.go('logOut');
+				$state.go('loggedIn.infoTab');
 			} else {
 				$state.go('logIn');
 			}

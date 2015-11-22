@@ -1,0 +1,15 @@
+<ion-view title="Info Tab">
+	<ion-content padding="'true'" class="has-header">
+
+		<form class="list" ng-submit="logout()" ng-disabled="isSaving">
+			<ion-list>
+				<div class="card">
+					<div class="item item-text-wrap" style="margin-top: 0;">
+						This device is logged in as <strong>{{ username }}</strong>.
+					</div>
+				</div>
+			</ion-list>
+		</form>
+
+	</ion-content>
+</ion-view>

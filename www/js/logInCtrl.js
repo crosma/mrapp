@@ -35,7 +35,7 @@ angular.module('app.controllers').controller('logInCtrl', function ($scope, $sta
 					localStorage.logged_in = true;
 					localStorage.acct_id = response.data.acct_id;
 
-					$state.go('logOut');
+					$state.go('loggedIn.infoTab');
 				} else {
 					$scope.errors = [response.data.msg];
 				}

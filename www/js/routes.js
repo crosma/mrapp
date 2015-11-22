@@ -19,11 +19,40 @@ angular.module('app.routes', [])
 			controller: 'logInCtrl'
 		})
 
-		.state('logOut', {
-			url: '/logout',
-			templateUrl: 'templates/logOut.html',
-			controller: 'logOutCtrl'
+		.state('loggedIn', {
+			url: '/loggedIn',
+			abstract: true,
+			templateUrl: 'templates/loggedIn.html'
 		})
+		.state('loggedIn.infoTab', {
+			url: '/info',
+			views: {
+				'tab3': {
+					templateUrl: 'templates/infoTab.html',
+					controller: 'infoTabCtrl'
+				}
+			}
+		})
+		.state('loggedIn.optionsTab', {
+			url: '/options',
+			views: {
+				'tab1': {
+					templateUrl: 'templates/optionsTab.html',
+					controller: 'optionsTabCtrl'
+				}
+			}
+		})
+		.state('loggedIn.logOut', {
+			url: '/logout',
+			views: {
+				'tab2': {
+					templateUrl: 'templates/logOutTab.html',
+					controller: 'logOutTabCtrl'
+				}
+			}
+		})
+
+
 
 	;
 
