@@ -1,6 +1,14 @@
 <ion-view title="Options Tab">
-	<ion-content padding="'true'" class="has-header">
+	<ion-content padding="'true'" class="has-header" style="padding-top: 0;">
+		<div class="card" ng-show="errors">
+			<div class="item item-text-wrap assertive" ng-repeat="msg in errors" ng-bind-html="msg"></div>
+		</div>
 
+		<div class="card" ng-hide="show_options">
+			<div class="item item-text-wrap">
+				Retrieving your options...
+			</div>
+		</div>
 
 		<div ng-show="show_options">
 			<div class="list card">

@@ -11,3 +11,8 @@ fieldset {
 	white-space: normal !important;
 	width: 120%;
 }
+
+ion-content > div:first-child, ion-content > form > div:first-child {
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+}
