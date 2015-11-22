@@ -1,5 +1,7 @@
-angular.module('app.controllers').controller('logInCtrl', function ($scope, $state, $http) {
+angular.module('app.controllers').controller('logInCtrl', function ($scope, $state, $http, $ionicHistory) {
 	console.log('logInCtrl');
+	$ionicHistory.clearHistory();
+	$ionicHistory.clearCache();
 
 	$scope.username = localStorage.username;
 	$scope.password = localStorage.password;

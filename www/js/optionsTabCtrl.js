@@ -8,8 +8,8 @@ angular.module('app.controllers').controller('optionsTabCtrl', function ($scope,
 	$scope.options = {
 		timer_notifications: true,
 		must_be_inactive: true,
-		no_sound: false,
-		no_vibrate: false,
+		sound: true,
+		vibrate: true,
 		timers: {
 			mia_ready: {
 				enabled: true,

@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'app.config'])
 
-.run(function($ionicPlatform, $rootScope, $state, $ionicConfig) {
+.run(function($ionicPlatform, $rootScope, $state, $ionicHistory) {
 	$ionicPlatform.ready(function () {
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
@@ -22,10 +22,11 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 		console.log('ready');
 
 
+		/*
 		$ionicPlatform.registerBackButtonAction(function () {
 			console.log('back button');
 		}, 100);
-
+		*/
 
 
 		var push = PushNotification.init({
