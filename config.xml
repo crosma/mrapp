@@ -1,10 +1,11 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.mafiareturns.notifier" version="0.5.1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.mafiareturns.notifier"
+		version="0.5.1">
 	<name>MafiaReturns Notifications</name>
 	<description>Get notifications from MafiaReturns. Requires logging in to your MafiaReturns account.</description>
 	<author href="http://mafiareturns.com" email="enkindle@mafiareturns.com">MafiaReturns</author>
 	<content src="index.html"/>
 
-	<preference name="phonegap-version" value="cli-5.2.0" />
+	<preference name="phonegap-version" value="cli-5.2.0"/>
 
 	<preference name="permissions" value="none"/>
 	<preference name="orientation" value="default"/>
@@ -21,11 +22,15 @@
 	<preference name="disable-cursor" value="false"/>
 	<preference name="android-minSdkVersion" value="14"/>
 	<preference name="android-installLocation" value="auto"/>
-	<preference name="android-build-tool" value="gradle" />
+	<preference name="android-build-tool" value="gradle"/>
 
 
-	<gap:plugin name="cordova-plugin-device"/>
-	<gap:plugin name="cordova-plugin-inappbrowser"/>
+	<gap:plugin name="cordova-plugin-device" source="npm"/>
+	<gap:plugin name="cordova-plugin-inappbrowser" source="npm"/>
+	<gap:plugin name="cordova-plugin-app-version" source="npm"/>
+	<gap:plugin name="phonegap-plugin-push" source="npm"/>
+	<gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+	<gap:plugin name="ionic-plugin-keyboard" source="npm"/>
 
 	<!--
 	<gap:plugin name="org.apache.cordova.battery-status"/>
@@ -47,27 +52,24 @@
 	<gap:plugin name="org.apache.cordova.vibration"/>
 	-->
 
-	<gap:plugin name="phonegap-plugin-push" source="npm" />
-	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
-	<gap:plugin name="ionic-plugin-keyboard" source="npm" />
 
 	<icon src="icon.png"/>
 
-	<icon gap:platform="ios" src="res/icon/ios/icon-small.png" width="29" height="29" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-small_2x.png" width="58" height="58" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-40.png" width="40" height="40" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-40_2x.png" width="80" height="80" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-50.png" width="50" height="50" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-50_2x.png" width="100" height="100" />
-	<icon gap:platform="ios" src="res/icon/ios/icon.png" width="57" height="57" />
-	<icon gap:platform="ios" hsrc="res/icon/ios/icon_2x.png" width="114" eight="114" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-60.png" width="60" height="60" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-60_2x.png" width="120" height="120" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-60_3x.png" width="180" height="180" />
+	<icon gap:platform="ios" src="res/icon/ios/icon-small.png" width="29" height="29"/>
+	<icon gap:platform="ios" src="res/icon/ios/icon-small_2x.png" width="58" height="58"/>
+	<icon gap:platform="ios" src="res/icon/ios/icon-40.png" width="40" height="40"/>
+	<icon gap:platform="ios" src="res/icon/ios/icon-40_2x.png" width="80" height="80"/>
+	<icon gap:platform="ios" src="res/icon/ios/icon-50.png" width="50" height="50"/>
+	<icon gap:platform="ios" src="res/icon/ios/icon-50_2x.png" width="100" height="100"/>
+	<icon gap:platform="ios" src="res/icon/ios/icon.png" width="57" height="57"/>
+	<icon gap:platform="ios" hsrc="res/icon/ios/icon_2x.png" width="114" eight="114"/>
+	<icon gap:platform="ios" src="res/icon/ios/icon-60.png" width="60" height="60"/>
+	<icon gap:platform="ios" src="res/icon/ios/icon-60_2x.png" width="120" height="120"/>
+	<icon gap:platform="ios" src="res/icon/ios/icon-60_3x.png" width="180" height="180"/>
 	<!-- <icon gap:platform="ios" src="res/icon/ios/icon-72.png" width="72" height="72" />
 	<icon gap:platform="ios" src="res/icon/ios/icon-72_2x.png" width="144" height="144" /> -->
-	<icon gap:platform="ios" src="res/icon/ios/icon-76.png" width="76" height="76" />
-	<icon gap:platform="ios" src="res/icon/ios/icon-76_2x.png" width="152" height="152" />
+	<icon gap:platform="ios" src="res/icon/ios/icon-76.png" width="76" height="76"/>
+	<icon gap:platform="ios" src="res/icon/ios/icon-76_2x.png" width="152" height="152"/>
 
 	<allow-intent href="itms:*"/>
 	<allow-intent href="itms-apps:*"/>
@@ -92,7 +94,7 @@
 	<allow-intent href="geo:*"/>
 	-->
 
-	<access origin="*" />
-	<allow-intent href="*" />
-	<allow-navigation href="*" />
+	<access origin="*"/>
+	<allow-intent href="*"/>
+	<allow-navigation href="*"/>
 </widget>

@@ -41,7 +41,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 			window.registrationId = data.registrationId;
 
 			if (localStorage.logged_in) {
-				$state.go('loggedIn.infoTab');
+				$state.go('loggedIn.optionsTab');
 			} else {
 				$state.go('logIn');
 			}

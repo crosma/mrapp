@@ -24,15 +24,7 @@ angular.module('app.routes', [])
 			abstract: true,
 			templateUrl: 'templates/loggedIn.html'
 		})
-		.state('loggedIn.infoTab', {
-			url: '/info',
-			views: {
-				'tab3': {
-					templateUrl: 'templates/infoTab.html',
-					controller: 'infoTabCtrl'
-				}
-			}
-		})
+
 		.state('loggedIn.optionsTab', {
 			url: '/options',
 			views: {

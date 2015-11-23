@@ -16,3 +16,32 @@ ion-content > div:first-child, ion-content > form > div:first-child {
 	margin-top: 0 !important;
 	padding-top: 0 !important;
 }
+
+.appinfo {
+	background: url(../img/logo.png) no-repeat center top; /* 170px x 131px */
+	-webkit-background-size: 170px 131px;
+	background-size: 170px 131px;
+	padding-top: 131px;
+	margin-top: 15px;
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+	.appinfo {
+		background-position: left top;
+		padding: 0 0 0 190px; /* padding-top + padding-bottom + text area = image height */
+		min-height: 150px;
+	}
+
+	.appinfo > div:first-child, .appinfo > form > div:first-child {
+		margin-top: 0 !important;
+		padding-top: 0 !important;
+	}
+}
+
+/*
+ion-header-bar {
+	background: url(../img/logo-tiny.png) no-repeat right center;
+	-webkit-background-size: 45px 35px;
+	background-size: 45px 35px;
+}
+*/

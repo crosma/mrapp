@@ -1,5 +1,7 @@
-angular.module('app.controllers').controller('optionsTabCtrl', function ($scope, $state, $http) {
+angular.module('app.controllers').controller('optionsTabCtrl', function ($scope, $state, $http, $ionicHistory) {
 	console.log('optionsTabCtrl');
+	$ionicHistory.clearHistory();
+	$ionicHistory.clearCache();
 
 	delete $scope.errors;
 

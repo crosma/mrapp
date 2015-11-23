@@ -1,6 +1,13 @@
 angular.module('app.controllers').controller('logOutTabCtrl', function ($scope, $state, $http) {
 	console.log('logOutTabCtrl');
 
+	$scope.username = localStorage.username;
+
+	$scope.version = '...';
+	cordova.getAppVersion.getVersionNumber().then(function (version) {
+		$scope.version = version;
+	});
+
 	$scope.logout = function () {
 		console.log('logout');
 		$scope.isSaving = true;
