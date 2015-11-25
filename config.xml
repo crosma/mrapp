@@ -2,7 +2,7 @@
 		version="0.5.2">
 	<name>MafiaReturns Notifications</name>
 	<description>Get notifications from MafiaReturns. Requires logging in to your MafiaReturns account.</description>
-	<author href="http://mafiareturns.com" email="enkindle@mafiareturns.com">MafiaReturns</author>
+	<author href="http://mafiareturns.com" email="enkindle@mafiareturns.com">Crooked Studios</author>
 	<content src="index.html"/>
 
 	<preference name="phonegap-version" value="cli-5.2.0"/>
@@ -10,7 +10,7 @@
 	<preference name="permissions" value="none"/>
 	<preference name="orientation" value="default"/>
 	<preference name="target-device" value="universal"/>
-	<preference name="fullscreen" value="true"/>
+	<preference name="fullscreen" value="false"/>
 	<preference name="webviewbounce" value="true"/>
 	<preference name="prerendered-icon" value="true"/>
 	<preference name="stay-in-webview" value="false"/>

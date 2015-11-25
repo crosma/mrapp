@@ -1,13 +1,22 @@
+
+
 <ion-view title="MafiaReturns Notifications">
-	<ion-tabs class="tabs-stable tabs-icon-bottom">
+	<ion-tabs class="tabs-stable tabs-icon-bottom" ng-controller="tabsCtrl">
+		<ion-tab title="Nav" icon="ion-navicon-round"  ng-click="showMenuLeft()"></ion-tab>
 
-		<ion-tab title="Options" icon="ion-android-options" href="#/loggedIn/options">
-			<ion-nav-view name="tab1"></ion-nav-view>
+		<ion-tab title="MR" icon="ion-heart-broken" ui-sref="loggedIn.mainTab">
+			<ion-nav-view name="main-tab-view"></ion-nav-view>
 		</ion-tab>
 
-		<ion-tab title="Log Out" icon="ion-log-out" href="#/loggedIn/logout">
-			<ion-nav-view name="tab2"></ion-nav-view>
+		<ion-tab title="People" icon="ion-ios-people"  ui-sref="loggedIn.optionsTab">
+			<ion-nav-view name="options-tab-view"></ion-nav-view>
 		</ion-tab>
 
+		<ion-tab title="Chat" icon="ion-chatboxes"  ui-sref="loggedIn.optionsTab">
+			<ion-nav-view name="options-tab-view"></ion-nav-view>
+		</ion-tab>
+
+		<ion-tab title="Info" icon="ion-information-circled" ng-click="showMenuRight()"></ion-tab>
 	</ion-tabs>
 </ion-view>
+

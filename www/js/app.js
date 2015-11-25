@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'app.config'])
 
-.run(function($ionicPlatform, $rootScope, $state, $ionicHistory) {
+.run(function($ionicPlatform, $rootScope, $state, menuService) {
 	$ionicPlatform.ready(function () {
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
@@ -28,6 +28,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 		}, 100);
 		*/
 
+		$state.go('loggedIn.mainTab');
+
+		/*
 
 		var push = PushNotification.init({
 			"android": {"senderID": "129589237475"},
@@ -41,7 +44,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 			window.registrationId = data.registrationId;
 
 			if (localStorage.logged_in) {
-				$state.go('loggedIn.optionsTab');
+				$state.go('main.home');
+				//$state.go('loggedIn.optionsTab');
 			} else {
 				$state.go('logIn');
 			}
@@ -75,5 +79,11 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 			for (var p in obj) str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
 			return str.join("&");
 		};
+
+		*/
+
+
+
+
 	});
 });

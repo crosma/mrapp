@@ -9,5 +9,8 @@ angular.module('app.config', [])
 
 		$ionicConfigProvider.tabs.position('bottom');
 
+
+		//ionic.Platform.showStatusBar(false);
+
 		console.log('CONFIG');
 	});

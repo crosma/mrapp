@@ -45,3 +45,7 @@ ion-header-bar {
 	background-size: 45px 35px;
 }
 */
+
+a[ng-click]{
+	cursor: pointer;
+}

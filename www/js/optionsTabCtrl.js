@@ -1,7 +1,7 @@
 angular.module('app.controllers').controller('optionsTabCtrl', function ($scope, $state, $http, $ionicHistory) {
 	console.log('optionsTabCtrl');
-	$ionicHistory.clearHistory();
-	$ionicHistory.clearCache();
+	//$ionicHistory.clearHistory();
+	//$ionicHistory.clearCache();
 
 	delete $scope.errors;
 
@@ -57,6 +57,8 @@ angular.module('app.controllers').controller('optionsTabCtrl', function ($scope,
 			}
 		}
 	};
+
+	return;
 
 
 	//load options
