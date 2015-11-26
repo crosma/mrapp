@@ -22,56 +22,72 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 		console.log('ready');
 
 
+
+		if (!window.device)
+		{
+
+		}
+
 		/*
 		$ionicPlatform.registerBackButtonAction(function () {
 			console.log('back button');
 		}, 100);
 		*/
 
-		$state.go('loggedIn.mainTab');
+		//$state.go('loggedIn.mainTab');
+		$state.go('menus.tabs.main');
 
-		/*
+		function LogIn()
+		{
+			window.registrationId = 'debug';
+		}
 
-		var push = PushNotification.init({
-			"android": {"senderID": "129589237475"},
-			//"ios": {"alert": "true", "badge": "true", "sound": "true"},
-			//"windows": {}
-		});
+		if (typeof PushNotification === 'undefined') {
 
-		push.on('registration', function(data) {
-			console.log('push registration');
 
-			window.registrationId = data.registrationId;
+		} else {
+			var push = PushNotification.init({
+				"android": {"senderID": "129589237475"},
+				//"ios": {"alert": "true", "badge": "true", "sound": "true"},
+				//"windows": {}
+			});
 
-			if (localStorage.logged_in) {
-				$state.go('main.home');
-				//$state.go('loggedIn.optionsTab');
-			} else {
-				$state.go('logIn');
-			}
-		});
+			push.on('registration', function (data) {
+				console.log('push registration');
 
-		push.on('notification', function(data) {
-			// data.message,
-			// data.title,
-			// data.count,
-			// data.sound,
-			// data.image,
-			// data.additionalData
-			console.log('Push!: ', data);
+				window.registrationId = data.registrationId;
 
-			if (data.additionalData && data.additionalData.info && data.additionalData.info.action) {
-				var info = data.additionalData.info;
-
-				if (info.action == 'timer') {
-					window.open('http://mafiareturns.com' + info.url, '_system');
+				if (localStorage.logged_in) {
+					$state.go('main.home');
+					//$state.go('loggedIn.optionsTab');
+				} else {
+					$state.go('logIn');
 				}
-			}
-		});
+			});
 
-		push.on('error', function(e) {
-			console.log('push error');
-		});
+			push.on('notification', function (data) {
+				// data.message,
+				// data.title,
+				// data.count,
+				// data.sound,
+				// data.image,
+				// data.additionalData
+				console.log('Push!: ', data);
+
+				if (data.additionalData && data.additionalData.info && data.additionalData.info.action) {
+					var info = data.additionalData.info;
+
+					if (info.action == 'timer') {
+						window.open('http://mafiareturns.com' + info.url, '_system');
+					}
+				}
+			});
+
+			push.on('error', function (e) {
+				console.log('push error');
+			});
+		}
+
 
 
 		$rootScope.ajaxTransform = function (obj) {
@@ -79,9 +95,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 			for (var p in obj) str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
 			return str.join("&");
 		};
-
-		*/
-
 
 
 

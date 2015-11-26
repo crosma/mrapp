@@ -1,6 +1,6 @@
 angular.module('app.config', [])
 	.config(function ($ionicConfigProvider) {
-		$ionicConfigProvider.views.maxCache(5);
+		$ionicConfigProvider.views.maxCache(50);
 
 		// note that you can also chain configs
 		$ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');
@@ -11,6 +11,7 @@ angular.module('app.config', [])
 
 
 		//ionic.Platform.showStatusBar(false);
+
 
 		console.log('CONFIG');
 	});

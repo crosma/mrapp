@@ -1,7 +1,5 @@
-angular.module('app.controllers').controller('leftNavCtrl', function ($scope, uiService) {
-	console.log('leftNavCtrl');
-
-	var frame_source = null;
+angular.module('app.controllers').controller('menusCtrl', function ($scope, uiService) {
+	console.log('menusCtrl');
 
 	$scope.menus = [];
 
@@ -43,5 +41,4 @@ angular.module('app.controllers').controller('leftNavCtrl', function ($scope, ui
 
 		uiService.goto(link.url);
 	};
-
 });

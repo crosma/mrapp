@@ -1,10 +1,58 @@
 angular.module('app.routes', [])
 
-	.config(function ($stateProvider, $urlRouterProvider) {// Ionic uses AngularUI Router which uses the concept of states
+	.config(function ($stateProvider, $urlRouterProvider) {
+		// Ionic uses AngularUI Router which uses the concept of states
 		// Learn more here: https://github.com/angular-ui/ui-router
 		// Set up the various states which the app can be in.
 		// Each state's controller can be found in controllers.js
 		$stateProvider
+
+			.state('menus', {
+				url: '/menus',
+				abstract: true,
+				templateUrl: 'templates/menu.html',
+				controller: 'menusCtrl'
+			})
+			.state('menus.tabs', {
+				url: '/tabs',
+				abstract: true,
+				controller: 'tabssCtrl',
+				views: {
+					'menu-view': {
+						templateUrl: 'templates/tabs.html'
+					}
+				}
+			})
+
+			.state('menus.tabs.main', {
+				url: '/main',
+				views: {
+					'main-view': {
+						templateUrl: 'templates/main.html',
+						controller: 'mainCtrl'
+					}
+				}
+			})
+			.state('menus.tabs.chat', {
+				url: '/chat',
+				views: {
+					'chat-view': {
+						templateUrl: 'templates/chat.html',
+						controller: 'mainCtrl'
+					}
+				}
+			})
+			.state('menus.tabs.people', {
+				url: '/people',
+				views: {
+					'people-view': {
+						templateUrl: 'templates/people.html',
+						controller: 'mainCtrl'
+					}
+				}
+			})
+
+/*
 			.state('loading', {
 				url: '/loading',
 				views: {
@@ -25,12 +73,16 @@ angular.module('app.routes', [])
 				}
 			})
 
-
-			.state('loggedIn', {
-				url: '/loggedIn',
-				abstract: true,
-				templateUrl: 'templates/loggedIn.html'
+			.state('menus.tabs', {
+				url: '/tabs',
+				views: {
+					'menus-view': {
+						templateUrl: 'templates/tabs.html',
+						//controller: 'mainTabCtrl'
+					}
+				}
 			})
+
 			.state('loggedIn.mainTab', {
 				url: '/main',
 				views: {
@@ -40,6 +92,9 @@ angular.module('app.routes', [])
 					}
 				}
 			})
+
+
+
 			.state('loggedIn.optionsTab', {
 				url: '/options',
 				views: {
@@ -58,11 +113,12 @@ angular.module('app.routes', [])
 					}
 				}
 			})
+
+			*/
 		;
 
 		// if none of the above states are matched, use this as the fallback
-		//$urlRouterProvider.otherwise('/loggedIn/main');
-		$urlRouterProvider.otherwise('/loading');
+		//$urlRouterProvider.otherwise('/sdfsdf/main');
 	});
 
 /*
