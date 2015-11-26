@@ -1,43 +1,49 @@
+/* line 1, ../../sass/index.scss */
 fieldset {
-	border: 0;
-	margin: 0;
-	padding: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
+/* line 7, ../../sass/index.scss */
 .option-details {
-	color: #555555;
-	font-size: 11px;
-
-	white-space: normal !important;
-	width: 120%;
+  color: #555555;
+  font-size: 11px;
+  white-space: normal !important;
+  width: 120%;
 }
 
+/* line 15, ../../sass/index.scss */
 ion-content > div:first-child, ion-content > form > div:first-child {
-	margin-top: 0 !important;
-	padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
+/* line 20, ../../sass/index.scss */
 .appinfo {
-	background: url(../img/logo.png) no-repeat center top; /* 170px x 131px */
-	-webkit-background-size: 170px 131px;
-	background-size: 170px 131px;
-	padding-top: 131px;
-	margin-top: 15px;
+  background: url(../img/logo.png) no-repeat center top;
+  /* 170px x 131px */
+  -webkit-background-size: 170px 131px;
+  background-size: 170px 131px;
+  padding-top: 131px;
+  margin-top: 15px;
 }
 
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-	.appinfo {
-		background-position: left top;
-		padding: 0 0 0 190px; /* padding-top + padding-bottom + text area = image height */
-		min-height: 150px;
-	}
+@media screen and (min-aspect-ratio: 1 / 1) and (min-width: 400px) {
+  /* line 29, ../../sass/index.scss */
+  .appinfo {
+    background-position: left top;
+    padding: 0 0 0 190px;
+    /* padding-top + padding-bottom + text area = image height */
+    min-height: 150px;
+  }
 
-	.appinfo > div:first-child, .appinfo > form > div:first-child {
-		margin-top: 0 !important;
-		padding-top: 0 !important;
-	}
+  /* line 35, ../../sass/index.scss */
+  .appinfo > div:first-child, .appinfo > form > div:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
 }
-
 /*
 ion-header-bar {
 	background: url(../img/logo-tiny.png) no-repeat right center;
@@ -45,7 +51,31 @@ ion-header-bar {
 	background-size: 45px 35px;
 }
 */
+/* line 49, ../../sass/index.scss */
+a[ng-click] {
+  cursor: pointer;
+}
 
-a[ng-click]{
-	cursor: pointer;
+/* line 55, ../../sass/index.scss */
+#leftNav .sectionHeader {
+  font-weight: bold;
+  padding-left: 6px;
+}
+/* line 58, ../../sass/index.scss */
+#leftNav .sectionHeader.active {
+  border-color: #a6a6a6;
+  background-color: #999999;
+}
+/* line 67, ../../sass/index.scss */
+#leftNav .groupHeader {
+  border-color: #ccc;
+  background-color: #D9D9D9;
+  padding: 8px 12px;
+  font-weight: bold;
+}
+/* line 76, ../../sass/index.scss */
+#leftNav .link {
+  padding-left: 18px;
+  border-color: #d9d9d9;
+  background-color: #e6e6e6;
 }
