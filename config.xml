@@ -71,8 +71,6 @@
 	<icon gap:platform="ios" src="res/icon/ios/icon-76.png" width="76" height="76"/>
 	<icon gap:platform="ios" src="res/icon/ios/icon-76_2x.png" width="152" height="152"/>
 
-	<allow-intent href="itms:*"/>
-	<allow-intent href="itms-apps:*"/>
 
 	<icon gap:platform="android" gap:qualifier="ldpi" src="res/icon/android/ldpi.png"/>
 	<icon gap:platform="android" gap:qualifier="mdpi" src="res/icon/android/mdpi.png"/>
@@ -81,6 +79,9 @@
 	<icon gap:platform="android" gap:qualifier="xxhdpi" src="res/icon/android/xxhdpi.png"/>
 	<icon gap:platform="android" gap:qualifier="xxxhdpi" src="res/icon/android/xxxhdpi.png"/>
 
+
+	<allow-intent href="itms:*"/>
+	<allow-intent href="itms-apps:*"/>
 	<allow-intent href="market:*"/>
 
 	<!--

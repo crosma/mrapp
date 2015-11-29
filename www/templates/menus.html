@@ -1,0 +1,101 @@
+<ion-side-menus>
+	<ion-side-menu-content>
+		<!--
+		<ion-nav-bar class="bar-stable">
+			<ion-nav-back-button></ion-nav-back-button>
+
+			<ion-nav-buttons side="left">
+				<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+			</ion-nav-buttons>
+		</ion-nav-bar>
+		-->
+
+		<ion-header-bar align-title="right">
+			<div class="buttons">
+				<button class="button" ng-click="showMenuLeft()" ng-disabled="!menus">
+					<i class="icon ion-navicon-round"></i>
+				</button>
+				<button class="button" url="/comm/mobmail.php" ng-click="handle_link($event)" ng-class="{'has_mail': mail > 0, 'has_grant': grant > 0}">
+					<i class="icon" ng-class="{'ion-ios-email-outline': mail <= 0 && grant <= 0, 'ion-ios-email': mail > 0 || grant > 0}"></i>
+				</button>
+				<button class="button" url="/news/personals.php" ng-click="handle_link($event)">
+					<i class="icon " ng-class="personal_icon"></i>
+					<ion-nav-view name="main-view"></ion-nav-view>
+				</button>
+			</div>
+
+			<div class="title">
+				<div class="left">
+					<fakelink ng-click="open_travel()">{{ location }}</fakelink>
+					<br>
+					{{ title }}
+				</div>
+				<div class="right">
+					<fakelink url="/manage/bank.php" ng-click="handle_link($event)">{{ cash }}</fakelink>
+					<br>
+					{{ clock }}
+				</div>
+			</div>
+
+			<div class="buttons">
+
+				<button class="button" ui-sref="menus.main" ng-disabled="current_state == 'menus.main'">
+					<i class="icon ion-heart-broken"></i>
+				</button>
+				<button class="button" ui-sref="menus.people" ng-disabled="current_state == 'menus.people'">
+					<i class="icon ion-ios-people"></i>
+				</button>
+				<button class="button" ng-click="showMenuRight()">
+					<i class="icon ion-information-circled"></i>
+				</button>
+			</div>
+		</ion-header-bar>
+
+		<ion-nav-view name="menu-view"></ion-nav-view>
+	</ion-side-menu-content>
+
+
+	<ion-side-menu side="left" id="leftNav">
+		<ion-content>
+
+			<ion-list>
+				<div ng-repeat="section in menus">
+
+					<ion-item class="sectionHeader" ng-click="toggleSection(section)" ng-class="{active: isSectionShown(section)}">
+						{{ section.name }}
+					</ion-item>
+
+					<div ng-show="isSectionShown(section)" ng-repeat="(column_name, links) in section.groups">
+						<ion-item class="groupHeader">{{ column_name }}</ion-item>
+
+						<ion-item class="link" ng-repeat="link in links">
+							<a ng-click="goto(link)" ng-bind-html="link.text" menu-close></a>
+						</ion-item>
+					</div>
+
+				</div>
+			</ion-list>
+
+		</ion-content>
+	</ion-side-menu>
+
+
+	<ion-side-menu side="right" id="rightMenu">
+		<ion-content scroll="false" bounce="false">
+			<div ng-if="!username">
+				Loading...
+			</div>
+
+			<div ng-if="username">
+
+				<fakelink url="/news/uprofile.php?id={{ user_id }}" ng-click="handle_link($event)">{{ username }}
+				</fakelink>
+				|
+				<fakelink url="/manage/bank.php" ng-click="handle_link($event)">{{ cash }}</fakelink>
+				<br>
+				<fakelink ng-click="open_travel()">{{ location }}</fakelink>
+
+			</div>
+		</ion-content>
+	</ion-side-menu>
+</ion-side-menus>

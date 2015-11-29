@@ -3006,7 +3006,8 @@ time, mark, audio, video {
   border: 0;
   vertical-align: baseline;
   font: inherit;
-  font-size: 100%; }
+  font-size: 100%;
+  }
 
 ol, ul {
   list-style: none; }
@@ -3986,7 +3987,8 @@ a.subdued {
     white-space: nowrap;
     font-size: 17px;
     font-weight: 500;
-    line-height: 44px; }
+    /* line-height: 44px; */
+    }
     .bar .title.title-left {
       text-align: left; }
     .bar .title.title-right {
@@ -4049,7 +4051,8 @@ a.subdued {
   .bar .buttons,
   .bar .buttons.primary-buttons,
   .bar .buttons.secondary-buttons {
-    display: inherit; }
+    /* display: inherit; */
+    }
   .bar .buttons span {
     display: inline-block; }
   .bar .buttons-left span {

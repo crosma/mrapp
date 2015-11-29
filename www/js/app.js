@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'app.config'])
 
-.run(function($ionicPlatform, $rootScope, $state) {
+.run(function($ionicPlatform, $rootScope, $state, uiService) {
 	$ionicPlatform.ready(function () {
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
@@ -19,13 +19,18 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 			StatusBar.styleDefault();
 		}
 
-		console.log('ready');
 
-
-
+		//fake the device for debugging
 		if (!window.device)
 		{
+			if (!localStorage.fake_uuid) localStorage.fake_uuid = 'uuid_' + Math.random();
 
+			window.device = {
+				uuid: localStorage.fake_uuid,
+				platform: 'BrowserDebug',
+				model: 'Local Debug',
+				manufacturer: 'Crosma'
+			};
 		}
 
 		/*
@@ -34,35 +39,37 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 		}, 100);
 		*/
 
-		//$state.go('loggedIn.mainTab');
-		$state.go('menus.tabs.main');
-
-		function LogIn()
+		function login()
 		{
-			window.registrationId = 'debug';
+			if (localStorage.acct_id) {
+				$state.go('menus.main');
+			} else {
+				uiService.showLoginModal();
+			}
 		}
 
 		if (typeof PushNotification === 'undefined') {
+			setTimeout(function() {
+				console.log('fake registration');
 
+				if (!localStorage.registrationId) localStorage.registrationId = 'debug_' + Math.random();
+
+				login();
+			}, 200);
 
 		} else {
 			var push = PushNotification.init({
 				"android": {"senderID": "129589237475"},
-				//"ios": {"alert": "true", "badge": "true", "sound": "true"},
-				//"windows": {}
+				"ios": {"alert": "true", "badge": "true", "sound": "true"},
+				"windows": {}
 			});
 
 			push.on('registration', function (data) {
 				console.log('push registration');
 
-				window.registrationId = data.registrationId;
+				localStorage.registrationId = data.registrationId;
 
-				if (localStorage.logged_in) {
-					$state.go('main.home');
-					//$state.go('loggedIn.optionsTab');
-				} else {
-					$state.go('logIn');
-				}
+				login();
 			});
 
 			push.on('notification', function (data) {
@@ -95,8 +102,5 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 			for (var p in obj) str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
 			return str.join("&");
 		};
-
-
-
 	});
 });

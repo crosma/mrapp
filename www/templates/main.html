@@ -1,8 +1,11 @@
-<ion-view title="MR" hide-nav-bar="true">
+<ion-view title="MR">
 	<ion-content padding="false" has-bouncing="false" scroll="false" >
 
 		<div style="overflow: hidden; overflow-scrolling: touch; -webkit-overflow-scrolling: touch;  min-height: 100%; height: 100%;">
-			<iframe style="width: 100%; min-height: 100%;" src="http://mafiareturns.com/login.php?is_mobile=true" id="main_frame"></iframe>
+
+			<!-- TODO: Should create a local HTML file as a loading placeholder... -->
+			<iframe style="width: 100%; min-height: 100%;" ng-src="{{ url }}" id="main_frame"></iframe>
+
 		</div>
 
 	</ion-content>
