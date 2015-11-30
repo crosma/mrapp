@@ -1,10 +1,10 @@
-angular.module('app.controllers').controller('logInCtrl', function ($scope, $state, $http, $ionicHistory) {
-	console.log('logInCtrl');
-	$ionicHistory.clearHistory();
-	$ionicHistory.clearCache();
+angular.module('app.controllers').controller('loginCtrl', function ($scope, $rootScope, $state, $http, $ionicHistory) {
+	console.log('loginCtrl');
+	//$ionicHistory.clearHistory();
+	//$ionicHistory.clearCache();
 
 	$scope.username = localStorage.username;
-	$scope.password = localStorage.password;
+	//$scope.password = localStorage.password;
 	delete $scope.errors;
 
 	$scope.login = function () {
@@ -14,7 +14,7 @@ angular.module('app.controllers').controller('logInCtrl', function ($scope, $sta
 
 		if (this.username && this.password) {
 			localStorage.username = this.username;
-			localStorage.password = this.password;
+			//localStorage.password = this.password;
 
 			$scope.isSaving = true;
 
@@ -24,20 +24,26 @@ angular.module('app.controllers').controller('logInCtrl', function ($scope, $sta
 				data: {
 					action: 'login',
 					device: JSON.stringify(device),
-					registrationId: window.registrationId,
+					registrationId: localStorage.registrationId,
 					username: this.username,
 					password: this.password
 				},
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-				transformRequest: $scope.ajaxTransform
+				transformRequest: $rootScope.ajaxTransform
 			}).then(function successCallback(response) {
 				$scope.isSaving = false;
 
 				if (response.data.res == 'ok') {
-					localStorage.logged_in = true;
 					localStorage.acct_id = response.data.acct_id;
 
-					$state.go('loggedIn.infoTab');
+
+					console.log('LOGGED IN GOING TO menus.main');
+					$state.go('menus.main');
+
+					//use a timeout to avoid there being much flicker
+					setTimeout(function() {
+						$rootScope.modal.hide();
+					}, 0);
 				} else {
 					$scope.errors = [response.data.msg];
 				}

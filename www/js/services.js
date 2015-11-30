@@ -4,10 +4,10 @@ angular.module('app.services', [])
 
 	}])
 
-	.service('uiService', function ($rootScope, $ionicModal, $ionicLoading) {
+	.service('uiService', function ($rootScope, $ionicModal, $ionicLoading, $state) {
 
-		this.showLoginModal = function() {
-			$ionicModal.fromTemplateUrl('./templates/login.html', {
+		this.showLoginModal = function () {
+			$ionicModal.fromTemplateUrl('templates/login.html', {
 				scope: null,
 				animation: 'animation',
 				focusFirstInput: true,
@@ -20,7 +20,7 @@ angular.module('app.services', [])
 		};
 
 		//all functions need to be defined before the initialization code and such
-		var handleMessage = function(event) {
+		var handleMessage = function (event) {
 			postMessageSource = event.source;
 
 			var what = event.data[0];
@@ -34,17 +34,17 @@ angular.module('app.services', [])
 			}
 		};
 
-		var sendToUI = function(what, data) {
+		var sendToUI = function (what, data) {
 			data = data || {};
 
 			if (postMessageSource) postMessageSource.postMessage([what, data], "*");
 		};
 
-		this.goto = function(url) {
+		this.goto = function (url) {
 			sendToUI('goto', url);
 		};
 
-		this.open_travel = function() {
+		this.open_travel = function () {
 			sendToUI('open_travel')
 		};
 
@@ -52,11 +52,11 @@ angular.module('app.services', [])
 		/**************************************************************************************
 		 ***** Command handlers
 		 *************************************************************************************/
-		this.command_menu = function(menus) {
+		this.command_menu = function (menus) {
 			$rootScope.$broadcast('menu-data', menus);
 		};
 
-		this.command_ui = function(d) {
+		this.command_ui = function (d) {
 			console.log('ui data', d);
 
 			//stuff needed by more than one subscriber
@@ -68,7 +68,7 @@ angular.module('app.services', [])
 			$ionicLoading.hide();
 		};
 
-		this.command_push = function(args) {
+		this.command_push = function (args) {
 			console.log('PUSH', args);
 
 			var what = args[0];
@@ -79,25 +79,25 @@ angular.module('app.services', [])
 			$rootScope.$broadcast('ui-push-' + what, data, msg_id);
 		};
 
-		this.command_update_personals = function(personals) {
+		this.command_update_personals = function (personals) {
 			$rootScope.$broadcast('ui-update_personals', personals);
 		};
 
-		this.command_update_mail = function(mail, grant) {
+		this.command_update_mail = function (mail, grant) {
 			$rootScope.$broadcast('ui-update_mail', mail, grant);
 		};
 
-		this.command_clock = function(data) {
+		this.command_clock = function (data) {
 			$rootScope.$broadcast('ui-clock', data);
 		};
 
-		this.command_bad_login = function() {
+		this.command_bad_login = function () {
 			delete localStorage.acct_id;
 
 			this.showLoginModal();
 		};
 
-		this.command_ss_data = function(userinfo, friends) {
+		this.command_ss_data = function (userinfo, friends) {
 			console.log('ss', this);
 
 			this.data_userinfo = userinfo;

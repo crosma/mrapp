@@ -144,10 +144,15 @@ ion-header-bar .title .right {
 }
 
 /* line 146, ../../sass/index.scss */
+iframe {
+  background: #999999;
+}
+
+/* line 150, ../../sass/index.scss */
 #people {
   background: #999999;
 }
-/* line 149, ../../sass/index.scss */
+/* line 153, ../../sass/index.scss */
 #people online-list {
   background: darkblue;
   font-size: 16px;
@@ -157,87 +162,87 @@ ion-header-bar .title .right {
   display: block;
   color: #B4B4B4;
 }
-/* line 158, ../../sass/index.scss */
+/* line 162, ../../sass/index.scss */
 #people online-list .list {
   background-color: #1E1E1E;
   padding: 4px;
   margin: 0;
 }
-/* line 164, ../../sass/index.scss */
+/* line 168, ../../sass/index.scss */
 #people online-list .title, #people online-list .footer {
   background-color: #000;
   color: #FFF;
   padding: 4px;
   font-weight: 500;
 }
-/* line 172, ../../sass/index.scss */
+/* line 176, ../../sass/index.scss */
 #people online-list fakelink {
   display: inline-block;
   padding: 4px 4px;
   color: #B4B4B4;
 }
-/* line 177, ../../sass/index.scss */
+/* line 181, ../../sass/index.scss */
 #people online-list fakelink a.admin {
   color: #9933CC;
 }
-/* line 179, ../../sass/index.scss */
+/* line 183, ../../sass/index.scss */
 #people online-list fakelink.hw {
   color: #db4900;
   font-weight: bold;
 }
-/* line 183, ../../sass/index.scss */
+/* line 187, ../../sass/index.scss */
 #people online-list fakelink.hw:hover {
   color: #752700;
 }
-/* line 185, ../../sass/index.scss */
+/* line 189, ../../sass/index.scss */
 #people online-list fakelink.dove {
   color: #db4900;
   font-weight: bold;
 }
-/* line 190, ../../sass/index.scss */
+/* line 194, ../../sass/index.scss */
 #people online-list fakelink.cl {
   color: #ffffff;
   text-decoration: underline;
   font-weight: bold;
 }
-/* line 192, ../../sass/index.scss */
+/* line 196, ../../sass/index.scss */
 #people online-list fakelink.rhm {
   color: #ffffff;
   font-style: italic;
   text-decoration: underline;
 }
-/* line 194, ../../sass/index.scss */
+/* line 198, ../../sass/index.scss */
 #people online-list fakelink.pc {
   color: #B8A147;
 }
-/* line 196, ../../sass/index.scss */
+/* line 200, ../../sass/index.scss */
 #people online-list fakelink.ca {
   color: #5C5C5C;
 }
-/* line 198, ../../sass/index.scss */
+/* line 202, ../../sass/index.scss */
 #people online-list fakelink.jail {
   color: #808080;
 }
-/* line 200, ../../sass/index.scss */
+/* line 204, ../../sass/index.scss */
 #people online-list fakelink.hd {
   color: #66CCFF;
   font-weight: bold;
 }
-/* line 202, ../../sass/index.scss */
+/* line 206, ../../sass/index.scss */
 #people online-list fakelink.crew {
   color: #99cc99;
 }
-/* line 204, ../../sass/index.scss */
+/* line 208, ../../sass/index.scss */
 #people online-list fakelink.staff {
   color: #66CCFF;
 }
-/* line 206, ../../sass/index.scss */
+/* line 210, ../../sass/index.scss */
 #people online-list fakelink.dead {
   text-decoration: none  !important;
   color: #990033  !important;
   font-weight: normal  !important;
 }
-/* line 212, ../../sass/index.scss */
+/* line 216, ../../sass/index.scss */
 #people online-list fakelink.seven {
   color: #990033;
 }
