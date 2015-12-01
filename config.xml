@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.mafiareturns.notifier" version="0.6.1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.mafiareturns.notifier" version="0.6.3">
   <name>MafiaReturns Notifications</name>
   <description>Get notifications from MafiaReturns. Requires logging in to your MafiaReturns account.</description>
   <author href="http://mafiareturns.com" email="enkindle@mafiareturns.com">Crooked Studios</author>
