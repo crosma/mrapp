@@ -62,7 +62,7 @@ angular.module('app.routes', [])
 				url: '/login',
 				views: {
 					'base-view': {
-						templateUrl: 'templates/logIn.html',
+						templateUrl: 'templates/login.html',
 						controller: 'logInCtrl'
 					}
 				}
